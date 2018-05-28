@@ -60,7 +60,7 @@ class Task:
 
             if time[1] in ('minute', 'minutes'):
                 time = int(time[0])
-                if self._date.minute == 0 or time / self._date.minute == 1:
+                if self._date.minute == 0 or time / self._date.minute == 1 or time == 1:
                     return True
 
             elif time[1] in ('hour', 'hours'):
