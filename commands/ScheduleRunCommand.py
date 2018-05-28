@@ -20,9 +20,5 @@ class ScheduleRunCommand(Command):
             task = app.resolve(task_class)
 
             # If the class should run then run it
-            print('checking task: ', task_key)
             if task.should_run():
-                print('running ', task_key)
                 task.handle()
-            else:
-                print('class not ready to run', task_key)
