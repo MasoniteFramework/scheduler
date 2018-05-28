@@ -23,7 +23,7 @@ class CreateTaskCommand(Command):
             f.write("''' Task Module Description '''\n".format(task))
             f.write('from scheduler.Task import Task\n\n')
             f.write("class {0}(Task):\n    ''' Task description '''\n\n    ".format(task))
-            f.write("def __init__(self):\n         pass\n\n    ".format(task))
+            f.write("def __init__(self):\n        pass\n\n    ".format(task))
             f.write("def handle(self):\n        pass\n".format(task))
 
             self.info('Task Created Successfully!')

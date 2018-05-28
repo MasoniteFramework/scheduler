@@ -30,7 +30,18 @@ class TestScheduler:
         time = pendulum.now().on(2018, 5, 21).at(22, 6, 5)
         self.task._date = time
         assert self.task.should_run(time) == True
-    
+
+    def test_scheduler_should_run_every_2_minutes(self):
+        self.task.run_every = '2 minutes'
+        time = pendulum.now().on(2018, 5, 21).at(14, 56, 5)
+        self.task._date = time
+        assert self.task.should_run(time) == True
+
+        time = pendulum.now().on(2018, 5, 21).at(14, 58, 5)
+        self.task._date = time
+        assert self.task.should_run(time) == True
+
+
 
     def test_scheduler_should_run_every_hour(self):
         self.task.run_every = '1 hour'
