@@ -1,6 +1,6 @@
 import pytest
 import pendulum
-from Task import Task
+from scheduler.Task import Task
 
 class MockTask(Task):
     run_every = '5 minutes'
