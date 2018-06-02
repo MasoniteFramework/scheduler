@@ -6,7 +6,7 @@ python:
 install:
 - pip install .
 - pip install -r requirements.txt
-script: travis_retry python -m pytest
+script: travis_retry coverage run -m pytest
 deploy:
   provider: pypi
   user: josephmancuso
@@ -15,3 +15,6 @@ deploy:
   on:
     tags: true
     python: 3.6
+
+after_success:
+  coveralls
