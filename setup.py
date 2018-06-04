@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(
-    name="scheduler",
+    name="masonite-scheduler",
     version='0.1.0',
     packages=[
         'scheduler',
