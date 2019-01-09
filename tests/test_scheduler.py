@@ -4,6 +4,7 @@ from scheduler.Task import Task
 
 class MockTask(Task):
     run_every = '5 minutes'
+    timezone = 'America/New_York'
 
 class TestScheduler:
 
@@ -19,7 +20,6 @@ class TestScheduler:
         time = pendulum.now().on(2018, 5, 21).at(22, 6, 5)
         self.task._date = time
         assert self.task.should_run(time) == False
-    
     
     def test_scheduler_should_run_every_minute(self):
         self.task.run_every = '1 minute'

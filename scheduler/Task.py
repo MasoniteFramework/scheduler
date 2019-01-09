@@ -52,6 +52,8 @@ class Task:
     def _set_date(self):
         if not self._date:
             self._date = pendulum.now()
+            if hasattr(self, 'timezone'):
+                self._date.in_timezone(self.timezone)
 
 
     def _verify_run(self):
