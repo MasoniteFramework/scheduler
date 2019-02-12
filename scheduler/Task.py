@@ -11,6 +11,7 @@ class Task:
 
     _date = None
 
+    name = ''
 
     def __init__(self):
         """

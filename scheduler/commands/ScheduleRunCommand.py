@@ -9,6 +9,7 @@ class ScheduleRunCommand(Command):
     Run the scheduled tasks
 
     schedule:run
+        {--t|task=None : Name of task you want to run}
     """
 
     def handle(self):
@@ -17,6 +18,10 @@ class ScheduleRunCommand(Command):
         
         for task_key, task_class in tasks.items():
             # Resolve the task with the container
+            if self.option('task') != 'None':
+                if self.option('task') != task_key and self.option('task') != task_class.name:
+                    continue
+
             task = app.resolve(task_class)
 
             # If the class should run then run it
