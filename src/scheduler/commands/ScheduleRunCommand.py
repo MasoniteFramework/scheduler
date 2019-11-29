@@ -23,7 +23,7 @@ class ScheduleRunCommand(Command):
             if self.option('task') != 'None':
                 if self.option('task') != task_key and self.option('task') != task_class.name:
                     continue
-            
+
             if inspect.isclass(task_class):
                 task = app.resolve(task_class)
             else:
