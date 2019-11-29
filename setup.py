@@ -5,9 +5,9 @@ setup(
     version='1.0.2',
     package_dir={'': 'src'},
     packages=[
-        'scheduler',
-        'scheduler.commands',
-        'scheduler.providers'
+        'masonite.scheduler',
+        'masonite.scheduler.commands',
+        'masonite.scheduler.providers'
     ],
     author='Joe Mancuso',
     author_email='joe@masoniteproject.com',
