@@ -4,3 +4,6 @@ venv
 dist
 masonite_scheduler.*
 .vscode
+.env
+.env.*
+package.db
