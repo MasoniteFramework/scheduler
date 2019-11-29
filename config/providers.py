@@ -16,6 +16,8 @@ from masonite.providers import (
     CsrfProvider,
 )
 
+from src.scheduler.providers import ScheduleProvider
+
 """
 |--------------------------------------------------------------------------
 | Providers List
@@ -41,6 +43,7 @@ PROVIDERS = [
     CsrfProvider,
 
     # Third Party Providers
+    ScheduleProvider,
 
     # Application Providers
 

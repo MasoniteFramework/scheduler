@@ -1,4 +1,4 @@
 pytest
 pendulum
 coveralls
-masonite==2.3.0b1.post3
+https://github.com/masoniteframework/masonite/archive/develop.zip
