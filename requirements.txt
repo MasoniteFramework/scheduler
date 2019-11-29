@@ -1,3 +1,4 @@
 pytest
 pendulum
 coveralls
+masonite==2.3.0b1.post3
