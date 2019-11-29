@@ -1,5 +1,6 @@
 import pendulum
 
+
 class Task:
 
     run_every = False
@@ -20,7 +21,6 @@ class Task:
 
         pass
 
-
     def handle(self):
         """
         Fires the task
@@ -28,13 +28,11 @@ class Task:
 
         pass
 
-
     def log(self):
         """
         Log into scheduler cache
         """
         pass
-
 
     def should_run(self, date=None):
         """
@@ -49,13 +47,11 @@ class Task:
 
         return False
 
-
     def _set_date(self):
         if not self._date:
             self._date = pendulum.now()
             if hasattr(self, 'timezone'):
                 self._date.in_timezone(self.timezone)
-
 
     def _verify_run(self):
         if self.run_every:
@@ -82,22 +78,22 @@ class Task:
 
         elif self.run_at:
             return self._verify_run_at()
-                
+
         if self.run_every_minute:
-            if self._date.minute / 1  == 1:
+            if self._date.minute / 1 == 1:
                 return True
         elif self.run_every_hour:
             if self._date.hour / 1 == 1:
-                return True  
+                return True
         elif self.twice_daily:
             if self._date.hour in self.twice_daily:
                 return True
- 
+
         return False
 
     def _verify_run_every():
         pass
-    
+
     def _verify_run_at(self):
         if self._date.minute < 10:
             minute = "0{}".format(self._date.minute)
@@ -106,5 +102,5 @@ class Task:
 
         if "{0}:{1}".format(self._date.hour, minute) == self.run_at:
             return True
-        
+
         return False

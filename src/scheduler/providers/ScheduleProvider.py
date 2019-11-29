@@ -1,7 +1,9 @@
 ''' A ScheduleProvider Service Provider '''
 from masonite.provider import ServiceProvider
-from ..commands.ScheduleRunCommand import ScheduleRunCommand
+
 from ..commands.CreateTaskCommand import CreateTaskCommand
+from ..commands.ScheduleRunCommand import ScheduleRunCommand
+
 
 class ScheduleProvider(ServiceProvider):
 
