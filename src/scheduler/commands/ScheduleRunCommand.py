@@ -1,7 +1,8 @@
 """ A ScheduleRunCommand Command """
-from cleo import Command
-from scheduler.Task import Task
 import pendulum
+from cleo import Command
+
+from ..Task import Task
 
 
 class ScheduleRunCommand(Command):
@@ -15,7 +16,7 @@ class ScheduleRunCommand(Command):
     def handle(self):
         from wsgi import container as app
         tasks = app.collect(Task)
-        
+
         for task_key, task_class in tasks.items():
             # Resolve the task with the container
             if self.option('task') != 'None':
