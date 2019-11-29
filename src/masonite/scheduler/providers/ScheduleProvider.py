@@ -12,7 +12,6 @@ class ScheduleProvider(ServiceProvider, CanSchedule):
     def register(self):
         self.app.bind('ScheduleCommand', ScheduleRunCommand())
         self.app.bind('CreateTaskCommand', CreateTaskCommand())
-        self.schedule(CommandTask("echo 'new task'")).every('1 minute')
 
     def boot(self):
         pass
