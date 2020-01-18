@@ -1,4 +1,4 @@
-from src.scheduler.Task import Task
+from .Task import Task
 import subprocess
 
 
