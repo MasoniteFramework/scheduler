@@ -1,4 +1,4 @@
-''' A ScheduleProvider Service Provider '''
+""" A ScheduleProvider Service Provider """
 from masonite.provider import ServiceProvider
 
 from ..commands.CreateTaskCommand import CreateTaskCommand
@@ -8,10 +8,9 @@ from ..CanSchedule import CanSchedule
 
 
 class ScheduleProvider(ServiceProvider, CanSchedule):
-
     def register(self):
-        self.app.bind('ScheduleCommand', ScheduleRunCommand())
-        self.app.bind('CreateTaskCommand', CreateTaskCommand())
+        self.app.bind("ScheduleCommand", ScheduleRunCommand())
+        self.app.bind("CreateTaskCommand", CreateTaskCommand())
 
     def boot(self):
         pass

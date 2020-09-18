@@ -12,7 +12,7 @@ class Task:
 
     _date = None
 
-    name = ''
+    name = ""
 
     def __init__(self):
         """
@@ -26,35 +26,35 @@ class Task:
         return self
 
     def every_minute(self):
-        self.run_every = '1 minute'
+        self.run_every = "1 minute"
         return self
 
     def every_15_minutes(self):
-        self.run_every = '15 minutes'
+        self.run_every = "15 minutes"
         return self
 
     def every_30_minutes(self):
-        self.run_every = '15 minutes'
+        self.run_every = "15 minutes"
         return self
 
     def every_45_minutes(self):
-        self.run_every = '15 minutes'
+        self.run_every = "15 minutes"
         return self
 
     def hourly(self):
-        self.run_every = '1 hour'
+        self.run_every = "1 hour"
         return self
 
     def daily(self):
-        self.run_every = '1 day'
+        self.run_every = "1 day"
         return self
 
     def weekly(self):
-        self.run_every = '1 week'
+        self.run_every = "1 week"
         return self
 
     def monthly(self):
-        self.run_every = '1 month'
+        self.run_every = "1 month"
         return self
 
     def at(self, run_time):
@@ -93,30 +93,42 @@ class Task:
     def _set_date(self):
         if not self._date:
             self._date = pendulum.now()
-            if hasattr(self, 'timezone'):
+            if hasattr(self, "timezone"):
                 self._date.in_timezone(self.timezone)
 
     def _verify_run(self):
         if self.run_every:
-            time = self.run_every.split(' ')
+            time = self.run_every.split(" ")
 
-            if time[1] in ('minute', 'minutes'):
+            if time[1] in ("minute", "minutes"):
                 time = int(time[0])
                 if self._date.minute == 0 or self._date.minute % time == 0 or time == 1:
                     return True
 
-            elif time[1] in ('hour', 'hours'):
+            elif time[1] in ("hour", "hours"):
                 time = int(time[0])
                 if self._date.hour % time == 0 and self._date.minute == 0:
                     return True
 
-            elif time[1] in ('day', 'days'):
+            elif time[1] in ("day", "days"):
                 time = int(time[0])
-                if self._date.day_of_year % time == 0 and (self._date.hour == 0 and self._date.minute == 0 or self._verify_run_at()):
+                if self._date.day_of_year % time == 0 and (
+                    self._date.hour == 0
+                    and self._date.minute == 0
+                    or self._verify_run_at()
+                ):
                     return True
-            elif time[1] in ('month', 'months'):
+            elif time[1] in ("month", "months"):
                 time = int(time[0])
-                if self._date.month % time == 0 and self._date.day == 1 and (self._date.hour == 0 and self._date.minute == 0 or (self._date.day == 0 and self._verify_run_at())):
+                if (
+                    self._date.month % time == 0
+                    and self._date.day == 1
+                    and (
+                        self._date.hour == 0
+                        and self._date.minute == 0
+                        or (self._date.day == 0 and self._verify_run_at())
+                    )
+                ):
                     return True
 
         elif self.run_at:

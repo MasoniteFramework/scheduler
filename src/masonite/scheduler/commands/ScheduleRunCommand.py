@@ -16,12 +16,16 @@ class ScheduleRunCommand(Command):
 
     def handle(self):
         from wsgi import container as app
+
         tasks = app.collect(Task)
 
         for task_key, task_class in tasks.items():
             # Resolve the task with the container
-            if self.option('task') != 'None':
-                if self.option('task') != task_key and self.option('task') != task_class.name:
+            if self.option("task") != "None":
+                if (
+                    self.option("task") != task_key
+                    and self.option("task") != task_class.name
+                ):
                     continue
 
             if inspect.isclass(task_class):
