@@ -144,4 +144,18 @@ class TestScheduler:
         self.task._date = time
  
         assert self.task.should_run() is False 
+
+    def test_method_calls(self):
+        task = MockTask()
+        task.at('13:00')
+
+        time = pendulum.now().on(2018, 1, 1).at(13, 0, 5)
+        task._date = time
+
+        task = MockTask()
+        task.every_minute()
+
+        time = pendulum.now().on(2018, 5, 21).at(22, 5, 5)
+        task._date = time
+        assert task.should_run(time) == True
     
