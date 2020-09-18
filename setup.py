@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name="masonite-scheduler",
-    version='3.0.3',
+    version='3.0.4',
     package_dir={'': 'src'},
     packages=[
         'masonite.scheduler',
