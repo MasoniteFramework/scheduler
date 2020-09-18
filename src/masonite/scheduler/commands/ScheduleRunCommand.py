@@ -1,5 +1,6 @@
 """ A ScheduleRunCommand Command """
 import pendulum
+import inspect
 from cleo import Command
 
 from ..Task import Task
@@ -23,7 +24,10 @@ class ScheduleRunCommand(Command):
                 if self.option('task') != task_key and self.option('task') != task_class.name:
                     continue
 
-            task = app.resolve(task_class)
+            if inspect.isclass(task_class):
+                task = app.resolve(task_class)
+            else:
+                task = task_class
 
             # If the class should run then run it
             if task.should_run():

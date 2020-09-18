@@ -1,6 +1,6 @@
 import pytest
 import pendulum
-from src.scheduler.Task import Task
+from src.masonite.scheduler.Task import Task
 
 class MockTask(Task):
     run_every = '5 minutes'

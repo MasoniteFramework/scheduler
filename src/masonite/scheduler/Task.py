@@ -21,6 +21,49 @@ class Task:
 
         pass
 
+    def every(self, time):
+        self.run_every = time
+        return self
+
+    def every_minute(self):
+        self.run_every = '1 minute'
+        return self
+
+    def every_15_minutes(self):
+        self.run_every = '15 minutes'
+        return self
+
+    def every_30_minutes(self):
+        self.run_every = '15 minutes'
+        return self
+
+    def every_45_minutes(self):
+        self.run_every = '15 minutes'
+        return self
+
+    def hourly(self):
+        self.run_every = '1 hour'
+        return self
+
+    def daily(self):
+        self.run_every = '1 day'
+        return self
+
+    def weekly(self):
+        self.run_every = '1 week'
+        return self
+
+    def monthly(self):
+        self.run_every = '1 month'
+        return self
+
+    def at(self, run_time):
+        self.run_at = run_time
+        return self
+
+    def daily_at(self, run_time):
+        return self.daily().at(run_time)
+
     def handle(self):
         """
         Fires the task
