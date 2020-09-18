@@ -10,7 +10,7 @@ format:
 	black src/masonite/scheduler
 	black tests
 lint:
-	python -m flake8 src/scheduler/ --ignore=E501,F401,E128,E402,E731,F821,E712,W503
+	python -m flake8 src/masonite/scheduler --ignore=E501,F401,E128,E402,E731,F821,E712,W503
 deepsource:
 	curl https://deepsource.io/cli | sh
 	./bin/deepsource report --analyzer test-coverage --key python --value-file ./coverage.xml
