@@ -1,3 +1,5 @@
+from .CommandTask import  CommandTask
+
 class CanSchedule:
     def call(self, command):
         command_class = CommandTask(command)
